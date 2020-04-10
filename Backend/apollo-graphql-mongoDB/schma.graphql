@@ -1,0 +1,394 @@
+
+#https://apis.guru/graphql-voyager/
+
+directive @cacheControl(
+  maxAge: Int
+  scope: CacheControlScope
+) on FIELD_DEFINITION | OBJECT | INTERFACE
+
+enum CacheControlScope {
+  PUBLIC
+  PRIVATE
+}
+
+scalar DateTime
+scalar Json
+
+enum AreaType {
+  PROVINCE
+  DISTRICT
+  SUBDISTRICT
+  RISKAREA
+}
+
+type Query {
+  users: Users
+  personTracker: PersonTracker
+  patient: Patient 
+  province(id: ID!): Province
+  thCumulativeTotal: THTotalDataPoint
+  thDailyData: [THDailyDataPoint]
+}
+
+type Province implements MonitoredArea {
+  id: ID! 
+  name: String!
+  districts : [District] 
+  riskAreas : [RiskArea]
+  lat: Float
+  long: Float
+  notes: String
+  personTrackers(ids: [ID]): [PersonTracker]
+  healthProviders(ids: [ID]): [HealthProvider]
+  medicalSupplies: [MedicalSupply]
+  suppliers(ids: [ID]): [Supplier]
+  patients: [Patient]
+}
+
+type District implements MonitoredArea {
+  id: ID! 
+  name: String!
+  province: Province
+  riskAreas : [RiskArea] 
+  lat: Float
+  long: Float
+  notes: String
+  personTrackers(ids: [ID]): [PersonTracker]
+  healthProviders(ids: [ID]): [HealthProvider]
+  medicalSupplies: [MedicalSupply]
+  suppliers(ids: [ID]): [Supplier]
+  patients: [Patient]
+}
+
+type RiskArea implements Location {
+  id: ID! 
+  date: DateTime
+  name: String!
+  province: Province
+  districts : District
+  lat: Float
+  long: Float
+  notes: String
+  patients: [Patient]
+  covidResource: CovidResource
+}
+
+interface MonitoredArea {
+  name: String!
+  lat: Float
+  long: Float
+  notes: String
+  personTrackers(ids: [ID]): [PersonTracker]
+  healthProviders(ids: [ID]): [HealthProvider]
+  medicalSupplies: [MedicalSupply]
+  suppliers(ids: [ID]): [Supplier]
+}
+
+#reference for data source
+type CovidResource {
+  id: ID! 
+  riskArea: [RiskArea]!
+  url: String
+  images: [Image]
+  name: String
+  notes: String
+  # tracker: Tracker
+  # daily: [CovidStat] 
+}
+
+type CovidStat {
+  id: ID! 
+  date: DateTime! 
+  positive: Int
+  negative: Int
+  pending: Int
+  death: Int
+  riskAssessment: String
+  dateModified: DateTime
+  dateChecked: DateTime
+  inPatient: Int
+  outPatient: Int
+}
+
+type SupplyStat {
+  id: ID! 
+  province: String!
+  demand: Int
+  supply: Int
+  dateModified: DateTime
+  dateChecked: DateTime
+}
+
+interface Location {
+  lat: Float
+  long: Float
+}
+
+
+type Headers {
+  id: ID! 
+  Cookie: String
+}
+
+type HealthProvider implements Location {
+  id: ID! 
+  url: String
+  lat: Float
+  long: Float
+  medicalSupplies(ids: [ID]): [MedicalSupply]
+  covidStat: CovidStat!
+}
+
+type Supplier implements Location {
+  id: ID! 
+  url: String
+  lat: Float
+  long: Float
+  medicalSupplies(ids: [ID]): [MedicalSupply]
+}
+
+type MedicalSupply {
+  id: ID! 
+  url: String
+  amount: Float
+  unit: String
+}
+
+type Image {
+  id: ID! 
+  url: String
+  date: DateTime
+}
+ 
+type PersonTracker {
+  id: ID! 
+  url: String
+  pui: String!
+  pum: Boolean!
+  tracker: Tracker!
+  province: Province
+  district: District
+  healthProvider: HealthProvider
+  diagnostic: [TrackerDiagnostic]
+  status: String!
+}
+
+type TrackerDDCPreScreen  implements DDCPreScreen {
+	id: ID! 
+	user: PersonTracker!
+	date: DateTime!
+	Q1 : Float
+	Q2 : Boolean
+	Q3 : Boolean
+	Q4 : Boolean
+	Q5 : Boolean
+	Q6 : Boolean
+	Q7 : Boolean
+	Q8 : Boolean
+	genAction: String
+	specAction: String
+	riskLevel: Int!
+	riskIndex: Int!
+}
+
+enum  TestResult  {
+  POS
+  NEG
+  UNKNOWN
+}
+
+type Tracker implements Location {
+  id: ID! 
+  url: String
+  kind: String
+  filter: String
+  lat: Float
+  long: Float
+  headers: Json
+  navigate: String
+  options: Json
+  ssl_no_verify: Boolean
+}
+
+interface DataPoint {
+  id: ID! 
+  positives: Int
+  negatives: Int
+  positivesPlusNegatives: Int
+  pending: Int
+  deaths: Int
+  total: Int
+}
+
+type THDailyDataPoint implements DataPoint {
+  id: ID! 
+  date: DateTime
+  provincesReporting: Int
+  positives: Int
+  negatives: Int
+  positivesPlusNegatives: Int
+  pending: Int
+  deaths: Int
+  total: Int
+}
+
+type THTotalDataPoint implements DataPoint {
+  id: ID! 
+  date: DateTime
+  positives: Int
+  negatives: Int
+  positivesPlusNegatives: Int
+  pending: Int
+  deaths: Int
+  total: Int
+}
+
+interface DDCPreScreen {
+	Q1 : Float
+	Q2 : Boolean
+	Q3 : Boolean
+	Q4 : Boolean
+	Q5 : Boolean
+	Q6 : Boolean
+	Q7 : Boolean
+	Q8 : Boolean
+	riskLevel: Int!
+}
+
+interface Diagnostic {
+  id: ID! 
+  data: DateTime 
+  testResult: TestResult 
+  url: String
+  symptom: String
+  healthProvider: HealthProvider
+  medicalSupplies: [MedicalSupply]
+}
+
+type TrackerDiagnostic implements Diagnostic {
+  id: ID! 
+  data: DateTime   
+  testResult: TestResult 
+  url: String
+  symptom: String
+  healthProvider: HealthProvider
+  medicalSupplies: [MedicalSupply]
+  preScreenTest: TrackerDDCPreScreen
+}
+
+type PatientDiagnostic implements Diagnostic {
+  id: ID! 
+  data: DateTime 
+  testResult: TestResult 
+  url: String
+  symptom: String
+  healthProvider: HealthProvider
+  medicalSupplies: [MedicalSupply]
+  preScreenTest: PatientDDCPreScreen
+}
+
+enum PatientStatus {
+	RECOVERED
+	HOSPITALIZED
+	DEATH
+}
+
+type Patient {
+	id: Int! 
+	no: Int!
+	age: Int
+	sex: String
+	nationality: String
+	confirmDate: DateTime
+	provinceOnSet: Province
+	districtOnSet: District
+	riskAreas: RiskArea
+	diagnostic: [PatientDiagnostic]
+	admit: [Admit]
+	status: [DailyPatientStatus]
+}
+
+type DailyPatientStatus{
+	id: Int!
+	data: DateTime
+	status: PatientStatus
+	note: String
+}
+
+type Admit {
+	id: Int!
+	data: DateTime
+	healthProvider: HealthProvider!
+	note: String
+}
+
+type PatientDDCPreScreen implements DDCPreScreen {
+	id: ID!
+	patient: Patient!
+	Q1 : Float
+	Q2 : Boolean
+	Q3 : Boolean
+	Q4 : Boolean
+	Q5 : Boolean
+	Q6 : Boolean
+	Q7 : Boolean
+	Q8 : Boolean
+	genAction: String
+	specAction: String
+	riskLevel: Int!
+	riskIndex: Int!
+}
+
+type Users {
+	id: ID! 
+	username: String!
+	password: String!
+	age: Int
+	sex: String
+	consent: Boolean!
+	ddcPreScreens: [UsersDDCPreScreen]
+	locations: [UsersLocation]
+	symptom: [UsersSymptom]
+}
+
+type UsersSymptom {
+	id: ID! 
+	user: Users!
+	date: DateTime!
+	good: Boolean!
+	note: String
+}
+
+type UsersLocation implements Location{
+	id: ID! 
+	user: Users!
+	title: String
+	date: DateTime!
+	lat: Float!
+	long: Float!
+}
+
+type UsersDDCPreScreen  implements DDCPreScreen {
+	id: ID! 
+	user: Users!
+	date: DateTime!
+	Q1 : Float
+	Q2 : Boolean
+	Q3 : Boolean
+	Q4 : Boolean
+	Q5 : Boolean
+	Q6 : Boolean
+	Q7 : Boolean
+	Q8 : Boolean
+	genAction: String
+	specAction: String
+	riskLevel: Int!
+	riskIndex: Int!
+}
+
+enum  PreScreenResult  {
+  POS
+  NEG
+  UNKNOWN
+}
+
