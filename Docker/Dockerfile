@@ -2,6 +2,11 @@ From ubuntu:18.04
 #set time zone
 ENV TZ=Asia/Bangkok
 #install node and mongodb
+
+WORKDIR /
+#create directory for mongod
+RUN mkdir -p data/db  
+
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && apt-get update && apt-get install -y \
     curl \
@@ -29,11 +34,15 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     bcrypt@4.0.1\
     cors@2.8.5\
     express@4.17.1\
-    jsonwebtoken@8.5.1\
-    mongoose@5.9.7\
-#create directory for mongod
-    && mkdir data && mkdir data/db  
+    jsonwebtoken@8.5.1
+
+WORKDIR /app
+#ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json /app/package.json
+RUN npm install
+COPY commands.sh /scripts/commands.sh
+RUN ["chmod", "+x", "/scripts/commands.sh"]
 
 #start mongod service on start and entry at bash
-ENTRYPOINT mongod --fork --logpath /var/log/mongod.log && /bin/bash
+ENTRYPOINT ["/scripts/commands.sh"] 
 
