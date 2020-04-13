@@ -21,6 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate , CBCentralManagerDelega
             print("AD Data: \(ad)")
         }
     }
+    func startAdvertising(_ advertisementData: [String : Any]?){
+    }
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == .poweredOn {
             print("Bluetooth is On")

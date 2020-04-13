@@ -93,7 +93,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
-      customArchiveName = "Covid19"
+      customArchiveName = "ChecksieIOS"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
