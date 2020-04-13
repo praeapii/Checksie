@@ -41,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8B904915243DB50400071324 /* Covid19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Covid19.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B904915243DB50400071324 /* ChecksieIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChecksieIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B904918243DB50400071324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B90491A243DB50400071324 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8B90491C243DB50400071324 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,10 +49,10 @@
 		8B904921243DB50600071324 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8B904924243DB50600071324 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B904926243DB50600071324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B90492B243DB50600071324 /* Covid19Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Covid19Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B90492B243DB50600071324 /* ChecksieIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChecksieIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B90492F243DB50600071324 /* Covid19Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid19Tests.swift; sourceTree = "<group>"; };
 		8B904931243DB50600071324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B904936243DB50600071324 /* Covid19UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Covid19UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B904936243DB50600071324 /* ChecksieIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChecksieIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B90493A243DB50600071324 /* Covid19UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid19UITests.swift; sourceTree = "<group>"; };
 		8B90493C243DB50600071324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B904948243E3D2E00071324 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
@@ -101,9 +101,9 @@
 		8B904916243DB50400071324 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8B904915243DB50400071324 /* Covid19.app */,
-				8B90492B243DB50600071324 /* Covid19Tests.xctest */,
-				8B904936243DB50600071324 /* Covid19UITests.xctest */,
+				8B904915243DB50400071324 /* ChecksieIOS.app */,
+				8B90492B243DB50600071324 /* ChecksieIOSTests.xctest */,
+				8B904936243DB50600071324 /* ChecksieIOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,9 +173,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8B904914243DB50400071324 /* Covid19 */ = {
+		8B904914243DB50400071324 /* ChecksieIOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8B90493F243DB50700071324 /* Build configuration list for PBXNativeTarget "Covid19" */;
+			buildConfigurationList = 8B90493F243DB50700071324 /* Build configuration list for PBXNativeTarget "ChecksieIOS" */;
 			buildPhases = (
 				8B904911243DB50400071324 /* Sources */,
 				8B904912243DB50400071324 /* Frameworks */,
@@ -185,16 +185,16 @@
 			);
 			dependencies = (
 			);
-			name = Covid19;
+			name = ChecksieIOS;
 			packageProductDependencies = (
 			);
 			productName = Covid19;
-			productReference = 8B904915243DB50400071324 /* Covid19.app */;
+			productReference = 8B904915243DB50400071324 /* ChecksieIOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8B90492A243DB50600071324 /* Covid19Tests */ = {
+		8B90492A243DB50600071324 /* ChecksieIOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8B904942243DB50700071324 /* Build configuration list for PBXNativeTarget "Covid19Tests" */;
+			buildConfigurationList = 8B904942243DB50700071324 /* Build configuration list for PBXNativeTarget "ChecksieIOSTests" */;
 			buildPhases = (
 				8B904927243DB50600071324 /* Sources */,
 				8B904928243DB50600071324 /* Frameworks */,
@@ -205,14 +205,14 @@
 			dependencies = (
 				8B90492D243DB50600071324 /* PBXTargetDependency */,
 			);
-			name = Covid19Tests;
+			name = ChecksieIOSTests;
 			productName = Covid19Tests;
-			productReference = 8B90492B243DB50600071324 /* Covid19Tests.xctest */;
+			productReference = 8B90492B243DB50600071324 /* ChecksieIOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8B904935243DB50600071324 /* Covid19UITests */ = {
+		8B904935243DB50600071324 /* ChecksieIOSUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8B904945243DB50700071324 /* Build configuration list for PBXNativeTarget "Covid19UITests" */;
+			buildConfigurationList = 8B904945243DB50700071324 /* Build configuration list for PBXNativeTarget "ChecksieIOSUITests" */;
 			buildPhases = (
 				8B904932243DB50600071324 /* Sources */,
 				8B904933243DB50600071324 /* Frameworks */,
@@ -223,9 +223,9 @@
 			dependencies = (
 				8B904938243DB50600071324 /* PBXTargetDependency */,
 			);
-			name = Covid19UITests;
+			name = ChecksieIOSUITests;
 			productName = Covid19UITests;
-			productReference = 8B904936243DB50600071324 /* Covid19UITests.xctest */;
+			productReference = 8B904936243DB50600071324 /* ChecksieIOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -251,7 +251,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8B904910243DB50400071324 /* Build configuration list for PBXProject "Covid19" */;
+			buildConfigurationList = 8B904910243DB50400071324 /* Build configuration list for PBXProject "ChecksieIOS" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -266,9 +266,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8B904914243DB50400071324 /* Covid19 */,
-				8B90492A243DB50600071324 /* Covid19Tests */,
-				8B904935243DB50600071324 /* Covid19UITests */,
+				8B904914243DB50400071324 /* ChecksieIOS */,
+				8B90492A243DB50600071324 /* ChecksieIOSTests */,
+				8B904935243DB50600071324 /* ChecksieIOSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -338,12 +338,12 @@
 /* Begin PBXTargetDependency section */
 		8B90492D243DB50600071324 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8B904914243DB50400071324 /* Covid19 */;
+			target = 8B904914243DB50400071324 /* ChecksieIOS */;
 			targetProxy = 8B90492C243DB50600071324 /* PBXContainerItemProxy */;
 		};
 		8B904938243DB50600071324 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8B904914243DB50400071324 /* Covid19 */;
+			target = 8B904914243DB50400071324 /* ChecksieIOS */;
 			targetProxy = 8B904937243DB50600071324 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -480,15 +480,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Covid19/Preview Content\"";
-				DEVELOPMENT_TEAM = T28GMGCKRH;
+				DEVELOPMENT_TEAM = AR522VYMM9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Covid19/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "CMKL-CIE.Covid19";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = th.ac.cmkl.ChecksieIOS;
+				PRODUCT_NAME = ChecksieIOS;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -500,15 +500,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Covid19/Preview Content\"";
-				DEVELOPMENT_TEAM = T28GMGCKRH;
+				DEVELOPMENT_TEAM = AR522VYMM9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Covid19/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "CMKL-CIE.Covid19";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = th.ac.cmkl.ChecksieIOS;
+				PRODUCT_NAME = ChecksieIOS;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -531,7 +531,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Covid19.app/Covid19";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChecksieIOS.app/ChecksieIOS";
 			};
 			name = Debug;
 		};
@@ -552,7 +552,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Covid19.app/Covid19";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChecksieIOS.app/ChecksieIOS";
 			};
 			name = Release;
 		};
@@ -597,7 +597,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8B904910243DB50400071324 /* Build configuration list for PBXProject "Covid19" */ = {
+		8B904910243DB50400071324 /* Build configuration list for PBXProject "ChecksieIOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B90493D243DB50700071324 /* Debug */,
@@ -606,7 +606,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8B90493F243DB50700071324 /* Build configuration list for PBXNativeTarget "Covid19" */ = {
+		8B90493F243DB50700071324 /* Build configuration list for PBXNativeTarget "ChecksieIOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B904940243DB50700071324 /* Debug */,
@@ -615,7 +615,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8B904942243DB50700071324 /* Build configuration list for PBXNativeTarget "Covid19Tests" */ = {
+		8B904942243DB50700071324 /* Build configuration list for PBXNativeTarget "ChecksieIOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B904943243DB50700071324 /* Debug */,
@@ -624,7 +624,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8B904945243DB50700071324 /* Build configuration list for PBXNativeTarget "Covid19UITests" */ = {
+		8B904945243DB50700071324 /* Build configuration list for PBXNativeTarget "ChecksieIOSUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B904946243DB50700071324 /* Debug */,
