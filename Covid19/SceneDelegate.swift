@@ -8,10 +8,62 @@
 
 import UIKit
 import SwiftUI
-
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+import CoreBluetooth
+import CoreLocation
+class SceneDelegate: UIResponder, UIWindowSceneDelegate , CBCentralManagerDelegate, CLLocationManagerDelegate{
     var window: UIWindow?
+    let locationManager = CLLocationManager()
+    private var centralManager : CBCentralManager!
+    public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        print("\nName   : \(peripheral.name ?? "(No name)")")
+        print("RSSI   : \(RSSI)")
+        for ad in advertisementData {
+            print("AD Data: \(ad)")
+        }
+    }
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        if central.state == .poweredOn {
+            print("Bluetooth is On")
+            centralManager.scanForPeripherals(withServices: [CBUUID(string: "0000180F-0000-1000-8000-00805F9B34FB")], options: nil)
+        } else {
+            print("Bluetooth is not active")
+        }
+    }
+    
+    @IBAction func getLocation(_ sender: Any) {
+        // 1
+        let status = CLLocationManager.authorizationStatus()
+
+        switch status {
+            // 1
+        case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+                return
+
+            // 2
+        case .denied, .restricted:
+            Alert(title: Text("Location Services disabled"), message: Text("Please enable Location Services in Settings"), dismissButton: .default(Text("OK")))
+            return
+        case .authorizedAlways, .authorizedWhenInUse:
+            break
+
+
+        }
+        // 4
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+    }
+    // 1
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let currentLocation = locations.last {
+            print("Current location: \(currentLocation)")
+        }
+    }
+
+    // 2
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -19,6 +71,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
+        centralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
 
@@ -49,11 +102,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
+        print("entering foreground.")
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        print("entered background.")
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.

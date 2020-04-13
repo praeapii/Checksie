@@ -15,6 +15,12 @@
 		8B904925243DB50600071324 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B904923243DB50600071324 /* LaunchScreen.storyboard */; };
 		8B904930243DB50600071324 /* Covid19Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B90492F243DB50600071324 /* Covid19Tests.swift */; };
 		8B90493B243DB50600071324 /* Covid19UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B90493A243DB50600071324 /* Covid19UITests.swift */; };
+		8B904949243E3D2E00071324 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B904948243E3D2E00071324 /* CircleImage.swift */; };
+		8B90494B243E416D00071324 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B90494A243E416D00071324 /* MapView.swift */; };
+		8B90494D243E4ABD00071324 /* Bodymark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B90494C243E4ABD00071324 /* Bodymark.swift */; };
+		8B904952243E4F5300071324 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B904951243E4F5300071324 /* Data.swift */; };
+		8B904955243E4FEB00071324 /* bodyData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B904954243E4FEB00071324 /* bodyData.json */; };
+		8B904958243E635C00071324 /* RadioButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B904957243E635C00071324 /* RadioButtons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		8B904936243DB50600071324 /* Covid19UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Covid19UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B90493A243DB50600071324 /* Covid19UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid19UITests.swift; sourceTree = "<group>"; };
 		8B90493C243DB50600071324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B904948243E3D2E00071324 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		8B90494A243E416D00071324 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		8B90494C243E4ABD00071324 /* Bodymark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bodymark.swift; sourceTree = "<group>"; };
+		8B904951243E4F5300071324 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		8B904954243E4FEB00071324 /* bodyData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bodyData.json; sourceTree = "<group>"; };
+		8B904957243E635C00071324 /* RadioButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +111,18 @@
 		8B904917243DB50400071324 /* Covid19 */ = {
 			isa = PBXGroup;
 			children = (
+				8B904953243E4F9A00071324 /* Recources */,
 				8B904918243DB50400071324 /* AppDelegate.swift */,
 				8B90491A243DB50400071324 /* SceneDelegate.swift */,
 				8B90491C243DB50400071324 /* ContentView.swift */,
+				8B904957243E635C00071324 /* RadioButtons.swift */,
+				8B904956243E553200071324 /* Models */,
 				8B90491E243DB50600071324 /* Assets.xcassets */,
 				8B904923243DB50600071324 /* LaunchScreen.storyboard */,
 				8B904926243DB50600071324 /* Info.plist */,
 				8B904920243DB50600071324 /* Preview Content */,
+				8B904948243E3D2E00071324 /* CircleImage.swift */,
+				8B90494A243E416D00071324 /* MapView.swift */,
 			);
 			path = Covid19;
 			sourceTree = "<group>";
@@ -136,6 +153,23 @@
 			path = Covid19UITests;
 			sourceTree = "<group>";
 		};
+		8B904953243E4F9A00071324 /* Recources */ = {
+			isa = PBXGroup;
+			children = (
+				8B904954243E4FEB00071324 /* bodyData.json */,
+			);
+			path = Recources;
+			sourceTree = "<group>";
+		};
+		8B904956243E553200071324 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B90494C243E4ABD00071324 /* Bodymark.swift */,
+				8B904951243E4F5300071324 /* Data.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,6 +186,8 @@
 			dependencies = (
 			);
 			name = Covid19;
+			packageProductDependencies = (
+			);
 			productName = Covid19;
 			productReference = 8B904915243DB50400071324 /* Covid19.app */;
 			productType = "com.apple.product-type.application";
@@ -224,6 +260,8 @@
 				Base,
 			);
 			mainGroup = 8B90490C243DB50400071324;
+			packageReferences = (
+			);
 			productRefGroup = 8B904916243DB50400071324 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -241,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B904925243DB50600071324 /* LaunchScreen.storyboard in Resources */,
+				8B904955243E4FEB00071324 /* bodyData.json in Resources */,
 				8B904922243DB50600071324 /* Preview Assets.xcassets in Resources */,
 				8B90491F243DB50600071324 /* Assets.xcassets in Resources */,
 			);
@@ -267,7 +306,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B904952243E4F5300071324 /* Data.swift in Sources */,
 				8B904919243DB50400071324 /* AppDelegate.swift in Sources */,
+				8B904949243E3D2E00071324 /* CircleImage.swift in Sources */,
+				8B904958243E635C00071324 /* RadioButtons.swift in Sources */,
+				8B90494D243E4ABD00071324 /* Bodymark.swift in Sources */,
+				8B90494B243E416D00071324 /* MapView.swift in Sources */,
 				8B90491B243DB50400071324 /* SceneDelegate.swift in Sources */,
 				8B90491D243DB50400071324 /* ContentView.swift in Sources */,
 			);
@@ -436,6 +480,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Covid19/Preview Content\"";
+				DEVELOPMENT_TEAM = T28GMGCKRH;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Covid19/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -455,6 +500,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Covid19/Preview Content\"";
+				DEVELOPMENT_TEAM = T28GMGCKRH;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Covid19/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
